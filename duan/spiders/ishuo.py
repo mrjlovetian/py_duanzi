@@ -15,7 +15,9 @@ class IshuoSpider(CrawlSpider):
     # )
 
     def parse(self, response):
+        print("bengin parse")
         for each in response.xpath('//li/div'):
+            print('this is %s'%each);
             i = DuanItem()
             i['content'] = each.xpath("[@class='content']").extract()
             i['ahref'] = each.xpath('/a]').extract()

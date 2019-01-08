@@ -16,16 +16,16 @@ class IshuoSpider(CrawlSpider):
 
     def parse(self, response):
         print("bengin parse")
-        for each in response.xpath('//li/div'):
+        for each in response.xpath('//ul/li'):
             print('earch %s'%each)
-            content = each.xpath("[@class='content']").extract()
+            content = each.xpath("./div[@class='content']").extract()
             print('this is %s'%content);
             i = DuanItem()
-            i['content'] = each.xpath("[@class='content']").extract()
+            i['content'] = each.xpath("./div[@class='content']").extract()
             
-            i['ahref'] = each.xpath('/a').extract()
-            i['info'] = each.xpath("[@class='info']/text()").extract()
-            i['span'] = each.xpath('/span').extract()
+            i['ahref'] = each.xpath('./div/a').extract()
+            i['info'] = each.xpath("./div[@class='info']/text()").extract()
+            i['span'] = each.xpath('./div/span').extract()
             return i
 
         

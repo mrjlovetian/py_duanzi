@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from duan.items import DuanItem
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
@@ -14,8 +15,13 @@ class IshuoSpider(CrawlSpider):
     )
 
     def parse_item(self, response):
-        i = {}
-        #i['domain_id'] = response.xpath('//input[@id="sid"]/@value').extract()
-        #i['name'] = response.xpath('//div[@id="name"]').extract()
-        #i['description'] = response.xpath('//div[@id="description"]').extract()
-        return i
+        for each in response.xpath('//li/div'):
+            i = DuanItem()
+            i['content'] = each.xpath("[@class='content']").extract()
+            i['ahref'] = each.xpath('/a]').extract()
+            i['info'] = each.xpath("[@class='info']/text()").extract()
+            i['span'] = each.xpath('/span"]').extract()
+            return i
+
+        
+        

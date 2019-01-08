@@ -9,6 +9,7 @@ import scrapy
 
 
 class DuanItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    content = scrapy.Field()
+    ahref = scrapy.Field()
+    info = scrapy.Field()
+    span = scrapy.Field()

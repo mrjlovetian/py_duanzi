@@ -15,7 +15,7 @@ class IshuoSpider(CrawlSpider):
     # )
 
     def parse(self, response):
-        print("bengin parse")
+        print("bengin parse %s"%response)
         for each in response.xpath('//div[@class="content-1200"]/div/div/ul/li'):
             print('earch %s'%each)
             hh = "hahha"

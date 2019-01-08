@@ -20,7 +20,7 @@ class IshuoSpider(CrawlSpider):
             print('earch %s'%each)
             hh = "hahha"
             content = each.xpath("./div[@class='content']")
-            print('this is %s %s'%(content, hh);
+            print('this is %s %s'%(content, hh));
             i = DuanItem()
             i['content'] = each.xpath("[@class='content']").extract()
             

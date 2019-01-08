@@ -9,6 +9,7 @@ import pymysql
 
 class DuanPipeline(object):
     def process_item(self, item, spider):
+        print('.....................', item.content)
         db = pymysql.connect('localhost', 'root', '897011805', 'yhj')
         cursor = db.cursor()
         sql = """INSERT INTO duanzi VALUES ('%s', '%s', '%s', '%s')""" %(item.content, item.ahref, item.info, item.span)

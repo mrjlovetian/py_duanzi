@@ -7,7 +7,7 @@ from scrapy.spiders import CrawlSpider, Rule
 
 class IshuoSpider(CrawlSpider):
     name = 'ishuo'
-    allowed_domains = ['ishuo']
+    allowed_domains = ['stock.10jqka.com.cn']
     start_urls = ['http://stock.10jqka.com.cn/hks/ggydg_list/']
 
     # rules = (

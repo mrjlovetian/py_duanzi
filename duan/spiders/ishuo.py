@@ -10,11 +10,11 @@ class IshuoSpider(CrawlSpider):
     allowed_domains = ['ishuo']
     start_urls = ['https://ishuo.cn/']
 
-    rules = (
-        Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),
-    )
+    # rules = (
+    #     Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),
+    # )
 
-    def parse_item(self, response):
+    def parse(self, response):
         for each in response.xpath('//li/div'):
             i = DuanItem()
             i['content'] = each.xpath("[@class='content']").extract()

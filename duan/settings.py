@@ -82,7 +82,7 @@ ROBOTSTXT_OBEY = True
 #AUTOTHROTTLE_DEBUG = False
 
 ITEM_PIPELINES = {
-    "duan.piplines.DuanPipeline":300
+    "duan.pipelines.DuanPipeline":300
 }
 
 # Enable and configure HTTP caching (disabled by default)

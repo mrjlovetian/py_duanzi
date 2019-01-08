@@ -8,7 +8,7 @@ from scrapy.spiders import CrawlSpider, Rule
 class IshuoSpider(CrawlSpider):
     name = 'ishuo'
     allowed_domains = ['ishuo']
-    start_urls = ['http://ishuo/']
+    start_urls = ['https://ishuo.cn/']
 
     rules = (
         Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),

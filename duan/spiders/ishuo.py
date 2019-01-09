@@ -7,8 +7,8 @@ from scrapy.spiders import CrawlSpider, Rule
 
 class IshuoSpider(CrawlSpider):
     name = 'ishuo'
-    allowed_domains = ['stock.10jqka.com.cn']
-    start_urls = ['http://stock.10jqka.com.cn/hks/ggydg_list/']
+    allowed_domains = ['duanziwang.com']
+    start_urls = ['http://duanziwang.com/page/2/']
 
     # rules = (
     #     Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),
@@ -16,10 +16,10 @@ class IshuoSpider(CrawlSpider):
 
     def parse(self, response):
         print("bengin parse %s"%response)
-        for each in response.xpath('//div[@class="content-1200"]/div/div/ul/li'):
+        for each in response.xpath('//main/article/div'):
             print('earch %s'%each)
             hh = "hahha"
-            content = each.xpath("./a")
+            content = each.xpath("./h1/a/text()")
             print('this is %s %s'%(content, hh));
             i = DuanItem()
             i['content'] = each.xpath("[@class='content']").extract()

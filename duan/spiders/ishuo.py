@@ -19,14 +19,14 @@ class IshuoSpider(CrawlSpider):
         for each in response.xpath('//main/article/div'):
             print('earch %s'%each)
             hh = "hahha"
-            content = each.xpath("./h1/a/text()")
+            content = each.xpath("./h1/a/text()").extract()
             print('this is %s %s'%(content, hh));
-            i = DuanItem()
-            i['content'] = each.xpath("[@class='content']").extract()
+            # i = DuanItem()
+            # i['content'] = each.xpath("[@class='content']").extract()
             
-            i['ahref'] = each.xpath('/a').extract()
-            i['info'] = each.xpath("[@class='info']/text()").extract()
-            i['span'] = each.xpath('/span').extract()
+            # i['ahref'] = each.xpath('/a').extract()
+            # i['info'] = each.xpath("[@class='info']/text()").extract()
+            # i['span'] = each.xpath('/span').extract()
             return i
 
         

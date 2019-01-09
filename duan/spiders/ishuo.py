@@ -27,7 +27,7 @@ class IshuoSpider(CrawlSpider):
             # i['ahref'] = each.xpath('/a').extract()
             # i['info'] = each.xpath("[@class='info']/text()").extract()
             # i['span'] = each.xpath('/span').extract()
-            return i
+            # return i
 
         
         
